@@ -1,0 +1,43 @@
+---
+train:
+
+    params:
+        batch_size: 64  # Reduce batch size to help with GPU memory allocation
+        epoch: 80
+        lr: 0.0001  # Learning rate
+        decay: 0.0001 # Weight decay factor
+        decay_step: 60  # Step size for learning rate decay
+        warmup: false
+        # grad_accum_steps: 4  # Re-enable gradient accumulation steps
+
+    save:
+        metapath: "./save_pure"
+        folder: mpii
+        model_name: leave_80
+        step: 10
+
+    data:
+        image: "./MPIIGaze_out/Image"
+        label: "./MPIIGaze_out/Label"
+        header: True
+        name: mpii
+        isFolder: True  # Set this to True
+        
+    pretrain:
+        enable: false
+        path: "./save_pure/mpii/efficientnet-b0/leave_80_final.pth"  # Path to the pre-trained model
+        device: 0
+
+    device: 0
+
+    reader: reader
+
+    # freeze_transformer: false  # Set this to true to freeze transformer layers
+
+    backbone: mobilenet_v2  # Use MobileNetV2 as the backbone
+    # backbone: efficientnet-b0
+
+    pretrained: True  # Set this to True to use the pretrained model
+
+# dropout = 0
+# dim_feed = 512
