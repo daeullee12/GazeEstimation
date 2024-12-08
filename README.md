@@ -11,10 +11,14 @@ The preprocessing has been done using the code from: [Gazehub 3D-dataset](https:
 ## Usage
 
 Leave-one-person-out evaluation:
-python trainer/leave.py -s config/train/config_xx.yaml -p 0
+'''
+python trainer/leave.py -s config/train/config_mpii.yaml -p 0
+'''
 
 Leave-one-person-out training:
-python trainer/total.py -s config/train/config_xx.yaml    
+'''
+python trainer/total.py -s config/train/config_mpii.yaml    
+'''
 
 ## Model performance
 ![Model Performance](./img/Performance.png)
